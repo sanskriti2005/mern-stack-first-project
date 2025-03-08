@@ -1,10 +1,10 @@
 import express from 'express';
-import { configDotenv } from 'dotenv';
+import dotenv from 'dotenv';
 
-configDotenv(); // THIS IS GONNA WORK. PERIODT.
+dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 // Test Route
 app.get('/', (req, res) => {
