@@ -1,5 +1,4 @@
-import { TodoModel } from "../models/todoModel.js"
-
+import { TodoModel } from "../models/TodoModel.js"
 
 
 export const gettodosRoute = async (req, res) => {
