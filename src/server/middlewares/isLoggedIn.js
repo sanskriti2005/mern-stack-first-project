@@ -6,7 +6,6 @@ export const isLoggedIn = (req, res, next) => {
     res.status(401).send("Invalid Credentials: You're probably not logged in");
   } else {
     const token = authHeader.split(" ")[1];
-    console.log(token);
     jwt.verify(token, process.env.SECRET, (err, decoded) => {
       if (err) {
         res

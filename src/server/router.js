@@ -5,6 +5,7 @@ import { gettodosRoute } from "./routes/gettodosRoute.js";
 import { isLoggedIn } from "./middlewares/isLoggedIn.js";
 import { createTodoRoute } from "./routes/createTodoRoute.js";
 import { updateTodoRoute } from "./routes/updateTodoRoute.js";
+import { deleteTodoRoute } from "./routes/deleteTodoRoute.js";
 
 // router initialisation
 const router = express.Router();
@@ -15,7 +16,7 @@ router.post("/login", loginRoute);
 // protected routes
 router.get("/todos", isLoggedIn, gettodosRoute);
 router.post("/todos", isLoggedIn, createTodoRoute);
-// todo update
 router.put("/todos/:id", isLoggedIn, updateTodoRoute)
-// todo delete
+router.delete("/todos/:id", isLoggedIn, deleteTodoRoute);
+
 export { router };
