@@ -1,8 +1,13 @@
 import { TodoModel } from "../models/TodoModel.js"
 
 
-export const createTodoRoute = (req, res) => {
-    const todos = TodoModel.find()
+export const createTodoRoute = async (req, res) => {
+    // const todos = TodoModel.find()
     const { text } = req.body;
-    res.send(text)
+    const todo = new TodoModel({
+        text,
+        completed: false
+    })
+    const newTodo = await todo.save();
+    res.json(newTodo)
 }
